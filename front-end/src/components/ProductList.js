@@ -3,14 +3,13 @@ import { useNavigate} from 'react-router-dom';
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const navigate= useNavigate();
-    const API_URL=`https://fair-gray-gecko-wear.cyclic.app`;
     useEffect(() => {
         getProducts();
     }, []);
 
     const getProducts = async () => {
         const userId = JSON.parse(localStorage.getItem('users'))._id;
-        let result = await fetch(`${API_URL}/products/${userId}`,{
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/products/${userId}`,{
             headers:{
                 authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
@@ -20,7 +19,7 @@ const ProductList = () => {
         setProducts(arrayResult);
     }
     const deleteProduct = async (id) => {
-        let result = await fetch(`${API_URL}/product/${id}`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/product/${id}`, {
             method: "Delete",
             headers:{
                 authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -35,7 +34,7 @@ const ProductList = () => {
     const searchHandle= async (e)=>{
         let key = e.target.value;
         if(key){
-            let result = await fetch(`${API_URL}/search/${key}`,{
+            let result = await fetch(`https://shopkeeper-diary.onrender.com/search/${key}`,{
                 headers:{
                     authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
                 }

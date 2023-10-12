@@ -14,9 +14,8 @@ const AddProduct = () => {
              return false;
         }
 
-        const API_URL=`https://fair-gray-gecko-wear.cyclic.app`;
         const userId = JSON.parse(localStorage.getItem('users'))._id;
-        let result = await fetch(`${API_URL}/add-product`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/add-product`, {
             method: 'post',
             body: JSON.stringify({ name, price, category, company, userId }),
             headers: {

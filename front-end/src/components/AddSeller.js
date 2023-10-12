@@ -13,9 +13,9 @@ const AddSeller = () => {
             setError(true);
              return false;
         }
-        const API_URL =`https://fair-gray-gecko-wear.cyclic.app`;
+
         const userId = JSON.parse(localStorage.getItem('users'))._id;
-        let result = await fetch(`${API_URL}/add-seller`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/add-seller`, {
             method: 'post',
             body: JSON.stringify({ name,contact, paymentDue, company, userId }),
             headers: {

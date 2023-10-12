@@ -8,9 +8,8 @@ const UpdateSeller = () => {
     const [company, setCompany] = useState("");
     const params = useParams();
     const navigate = useNavigate();
-    const API_URL=`https://fair-gray-gecko-wear.cyclic.app`;
     const getSellerDetails = async () => {
-        let result = await fetch(`${API_URL}/seller/${params.id}`,{
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/seller/${params.id}`,{
             headers:{
                 authorization:`bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
@@ -28,7 +27,7 @@ const UpdateSeller = () => {
 
 
     const updateSeller = async () => {
-        let result = await fetch(`${API_URL}/seller/${params.id}`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/seller/${params.id}`, {
             method: 'Put',
             body: JSON.stringify({ name, contact , paymentDue, company }),
             headers: {

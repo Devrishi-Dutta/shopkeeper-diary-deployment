@@ -4,12 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 const Profile = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const API_URL=`https://fair-gray-gecko-wear.cyclic.app`;
     const navigate = useNavigate();
     const userId = JSON.parse(localStorage.getItem('users'))._id;
 
     const getUserDetails = async () => {
-        let result = await fetch(`${API_URL}/user/${userId}`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/user/${userId}`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
             }
@@ -26,7 +25,7 @@ const Profile = () => {
 
 
     const updateProfile = async () => {
-        let result = await fetch(`${API_URL}/user/${userId}`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/user/${userId}`, {
             method: 'Put',
             body: JSON.stringify({ name, email }),
             headers: {
