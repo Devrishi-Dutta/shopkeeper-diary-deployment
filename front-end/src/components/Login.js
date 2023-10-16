@@ -4,7 +4,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const API_URL=`https://fair-gray-gecko-wear.cyclic.app`;
+   
     useEffect( () => {
         const auth = localStorage.getItem("users");
         if (auth) {
@@ -12,7 +12,7 @@ const Login = () => {
         }
     });
     const searchLogin = async () => {
-        let result = await fetch(`${API_URL}/login`, {
+        let result = await fetch(`https://shopkeeper-diary.onrender.com/login`, {
             method: 'post',
             body: JSON.stringify({ email, password }),
             headers: {
